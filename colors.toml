@@ -1,20 +1,58 @@
-# Accent and UI colors
+# Omarchy 95 — the Windows 95 palette in Omarchy's colors.toml shape.
+#
+# Why this is not the file the theme's repo ships: that one is in the old
+# alacritty-style shape (accent, foreground, background, color0…color15). Every
+# named surface Omarchy and the launcher look for was missing from it, so each
+# fell back to the ANSI ramp: `lighter_background` fell back to `color0`
+# (#000000) — cards, popovers, buttons and the launcher's settings rows were
+# drawn BLACK — and `muted` / `dark_foreground` fell back to `color8` (#404040),
+# so the text on them came out black and dark grey. What follows is the same
+# Windows 95 palette, under the names Omarchy's templates actually read.
+
+mode = "light"                  # which variant themed apps take; status bar icons
+
+# Navy, as the original's title bars and selections: focused borders, selected
+# rows, links, accent buttons.
 accent = "#000080"
+selection = "#000080"           # the background behind selected text
+selection_foreground = "#ffffff"
+
+muted = "#404040"               # de-emphasised: dividers, disabled rows, a tile's outline
+
+background = "#c0c0c0"          # the 3D face: windows, tiles, the bar
+lighter_background = "#dfdfdf"  # raised surfaces: cards, popovers, hovered rows, buttons
+dark_background = "#a0a0a0"     # recessed: sidebars, status bars, code blocks
+darker_background = "#808080"   # recessed one step further
+
+foreground = "#000000"          # primary text on the face
+dark_foreground = "#404040"     # secondary text: subtitles, hints, disabled labels
+light_foreground = "#000000"    # emphasised text (btop's graph text on the face)
+bright_foreground = "#ffffff"   # the brightest step: cursors, selected text
+
+red = "#800000"
+orange = "#a05000"              # the shipped file had no orange, so the vscode and
+                                # neovim templates left the orange token unrendered
+yellow = "#808000"
+green = "#008000"
+cyan = "#008080"
+blue = "#000080"
+magenta = "#800080"
+
+bright_red = "#ff0000"
+bright_yellow = "#ffff00"
+bright_green = "#00ff00"
+bright_cyan = "#00ffff"
+bright_blue = "#0000ff"
+bright_magenta = "#ff00ff"
+
+# The ANSI ramp the theme was published with, kept so terminals and widgets that
+# read color0…color15 by number still get these sixteen, and `cursor` for Omarchy's
+# templates (alacritty, kitty, ghostty, helix, gum) which substitute it literally.
+# A name above always wins; these only fill in what the names leave out.
+cursor = "#000000"
 active_border_color = "#000080"
 active_tab_background = "#000080"
-
-# Cursor colors
-cursor = "#000000"
-
-# Primary colors
-foreground = "#000000"
-background = "#C0C0C0"
-
-# Selection colors
-selection_foreground = "#FFFFFF"
 selection_background = "#000080"
-
-# Normal colors (ANSI 0-7)
 color0 = "#000000"
 color1 = "#800000"
 color2 = "#008000"
@@ -23,8 +61,6 @@ color4 = "#000080"
 color5 = "#800080"
 color6 = "#008080"
 color7 = "#FFFFFF"
-
-# Bright colors (ANSI 8-15)
 color8 = "#404040"
 color9 = "#FF0000"
 color10 = "#00FF00"
